@@ -35,15 +35,17 @@ class InventoryManager:
         val ={};
         
         print(len(inputs))
-        if len(inputs)!=4:
+        if len(inputs)!=len(Constants.ITEM_SCHEMA):
             for i in range(0,len(Constants.ITEM_SCHEMA)):
                 x=self.readInput(Constants.ITEM_SCHEMA[i]);
-                val[lists[i]]=x;
+                val[Constants.ITEM_SCHEMA[i]]=x;
         else:
             # Todo : validate output
             val=inputs;
         
-        newItem = Item(val["itemName"],val["cost"],val["subtype"],val["replacementDuration"]);
+        newItem = Item()
+        for key, value in val.items():
+            setattr(newItem, key, value);
         # Connect to the database
         saveToDB(newItem)
         exportManager.export2CSV()
@@ -93,7 +95,7 @@ class InventoryManager:
         return total_cost
     def deleteData(self):
         #Todo  : Remove a product from the inventory
-        name=input("Enter the name of the product to be deleted: ")
+        name=input(Constants.DELETE_PRODUCT_PROMPT)
         conn = sqlite3.connect(Constants.DB_FILE)
         cursor = conn.cursor()
         
@@ -163,7 +165,7 @@ class InventoryManager:
             if(choice==Constants.ACTION.EXIT.value):
                 return 0;
             if(choice==Constants.ACTION.SEARCH.value):
-                inventory_manager.search(input("Enter the name of the product to be searched: "));
+                inventory_manager.search(input(Constants.SEARCH_PRODUCT_PROMPT));
                 choice=''
                 continue
             else:

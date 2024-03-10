@@ -42,4 +42,8 @@ menuString = ''.join(menuList)
 
 
 # Supported Fields
-ITEM_SCHEMA =["itemName","subtype","cost","replacementDuration"];
+ITEM_SCHEMA =["itemName","subtype","cost","replacementDuration","comments"];
+
+#Inputs
+DELETE_PRODUCT_PROMPT="Enter the name of the product to be deleted: "
+SEARCH_PRODUCT_PROMPT="Enter the name of the product to be searched: "
