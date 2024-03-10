@@ -1,9 +1,10 @@
 class Item:
-    def __init__(self, name, cost, subtype, replacementDuration):
+    def __init__(self, name, cost, subtype, replacementDuration,comment):
         self.itemName = name
         self.cost = cost
         self.subtype = subtype
         self.replacementDuration = replacementDuration
+        self.comment=comment;
     def getItemName(self):
         return self.itemName
     def getCost(self):
@@ -12,6 +13,8 @@ class Item:
         return self.subtype
     def getReplacementDuration(self):
         return self.replacementDuration
+    def getComment(self):
+        return self.comment
 '''
 
 Todo : 
