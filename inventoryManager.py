@@ -174,6 +174,7 @@ class InventoryManager:
     
 if __name__ == '__main__':
     inventory_manager = InventoryManager()
+
     export_manager = exportManager()
     inventory_manager.handleMenu(choice='');
 
@@ -181,6 +182,11 @@ if __name__ == '__main__':
 Todo : Make GUI Inputs.
 Todo : Add protection against Dependency Injection Attacks. 
 Todo : Rethink Schema for the GUI
+Todo ; Create classes for Books, maybe tables also for books. This could be good. Need to rethink.
+Todo : Add a UI to search a product and display it.
+TOdo : Add backup to the database. Have it copied somewhere to avoid messing with real data.
+
+
 '''
 
 # Setup a jenkins Job using RPI as a slave
